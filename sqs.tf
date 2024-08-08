@@ -16,3 +16,30 @@ resource "aws_sqs_queue" "to_production_order_queue" {
     "client_1" = "production"
   }
 }
+
+resource "aws_sqs_queue" "order_status_updated_queue" {
+  name                        = "order_status_updated-queue"
+  content_based_deduplication = true
+  tags = { 
+    "terraform" = "true"
+    "client_1" = "production"
+  }
+}
+
+resource "aws_sqs_queue" "order_payment_status_updated_queue" {
+  name                        = "order_payment_status_updated-queue"
+  content_based_deduplication = true
+  tags = { 
+    "terraform" = "true"
+    "client_1" = "production"
+  }
+}
+
+resource "aws_sqs_queue" "production_order_created_queue" {
+  name                        = "production_order_created-queue"
+  content_based_deduplication = true
+  tags = { 
+    "terraform" = "true"
+    "client_1" = "production"
+  }
+}
